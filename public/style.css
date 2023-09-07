@@ -7,7 +7,7 @@ body {
     font-size: 20px;
 }
 .header {
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5) 100px, rgba(0, 0, 0,0) 80%);
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.65) 100px, rgba(0, 0, 0,0) 80%);
     max-width: 600px;
     margin: 10px auto;
     text-align: center;
@@ -47,18 +47,22 @@ body {
     font-weight: 500;
     font-style: normal;
     font-size:30px;
-    height:30px;
     line-height:30px;
     margin:20px 0 0 0;
 }
 .container {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.65);
     max-width: 600px;
     margin: 10px auto;
     color: white;
     padding: 20px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 1);
     display: flex;
+}
+.container sup {
+    vertical-align: text-top;
+    font-size: .6em;
+    line-height: 1.3em;
 }
 .location {
     text-align: center;
@@ -68,13 +72,14 @@ body {
     line-height:30px;
     width:50%;
     flex:1;
-    padding:0 10px
+    padding:0 10px;
 }
 .location a {
     color:rgb(255, 255, 255);
     text-decoration: none;
     display:block;
     width:100%;
+    cursor:pointer;
 }
 .location .line {
     display: block;
@@ -116,7 +121,7 @@ body {
     padding: 20px;
     font-weight: 700;
     font-style: normal;
-    font-size:50px;
+    font-size: 50px;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 8px rgba(255, 255, 255, 1);
@@ -132,4 +137,70 @@ body {
 #rsvp iframe {
     background:linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0, rgba(255,255,255,0) 400px);
     height:100%;
+}
+
+@media (max-width: 500px) {
+    .header .bigname {
+        font-size:200px;
+        height:120px;
+        line-height: 130px;
+    }
+    .header .subname {
+        font-size:48px;
+        height:48px;
+        line-height:56px;
+    }
+    .header .bignumber {
+        font-size:72px;
+        height:72px;
+        line-height:56px;
+    }
+    .header .message {
+        font-size:24px;
+        line-height:24px;
+    }
+    .location {
+        font-size:24px;
+        line-height:24px;
+    }
+    .location .bigname {
+        font-size:40px;
+        height:40px;
+        line-height:40px;
+    }
+    .time {
+        font-size:24px;
+        line-height:24px;
+    }
+    .time .date {
+        font-size:40px;
+        height:40px;
+        line-height:40px;
+    }
+}
+
+@media (max-width: 375px) {
+    .header .message {
+        font-size:20px;
+        line-height:20px;
+    }
+    .location {
+        font-size:22px;
+        line-height:22px;
+    }
+    .location .bigname {
+        font-size:35px;
+        line-height:35px;
+    }
+    .time {
+        font-size:22px;
+        line-height:22px;
+    }
+    .time .date {
+        font-size:35px;
+        line-height:35px;
+    }
+    .rsvp a {
+        font-size: 42px;
+    }
 }
