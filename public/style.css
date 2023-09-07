@@ -1,0 +1,135 @@
+body {
+    background: url('images/bg1.png') repeat;
+    background-size: 600px 600px;
+    font-family: "blanket", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+.header {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5) 100px, rgba(0, 0, 0,0) 80%);
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: center;
+    color: white;
+    padding: 40px 20px 20px 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+.header .bigname {
+    font-weight: 900;
+    font-style: normal;
+    font-size:240px;
+    height:150px;
+    line-height: 164px;
+    display:block;
+    clear:both;
+    color: rgb(239, 222, 152);
+}
+.header .subname {
+    font-weight: 500;
+    font-style: normal;
+    font-size:60px;
+    height:60px;
+    line-height:70px;
+    display:block;
+    clear:both;
+    text-transform:uppercase;
+}
+.header .bignumber {
+    font-weight: 900;
+    font-style: normal;
+    font-size:90px;
+    height:90px;
+    line-height:70px;
+    color:rgb(249, 179, 97);
+}
+.header .message {
+    font-weight: 500;
+    font-style: normal;
+    font-size:30px;
+    height:30px;
+    line-height:30px;
+    margin:20px 0 0 0;
+}
+.container {
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: 10px auto;
+    color: white;
+    padding: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    display: flex;
+}
+.location {
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+    line-height:30px;
+    width:50%;
+    flex:1;
+    padding:0 10px
+}
+.location a {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    display:block;
+    width:100%;
+}
+.location .line {
+    display: block;
+    clear: both;
+}
+.location .bigname {
+    font-weight: 700;
+    font-style: normal;
+    font-size:50px;
+    height:50px;
+    line-height:50px;
+}
+.time {
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+    line-height:30px;
+    width:50%;
+    flex:1;
+    padding:0 10px;
+}
+.time .line {
+    display: block;
+    clear: both;
+}
+.time .date {
+    font-size:50px;
+    height:50px;
+    line-height:50px;
+    color: rgb(239, 222, 152);
+}
+.rsvp {
+    flex: 1;
+}
+.rsvp a {
+    display: block;
+    flex: 1;
+    padding: 20px;
+    font-weight: 700;
+    font-style: normal;
+    font-size:50px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    background:linear-gradient(0deg, rgb(193, 148, 38) 0%, rgb(247, 191, 16) 100%);
+    color:rgb(55, 16, 82);
+}
+
+#rsvp {
+    height:100vh;
+}
+
+#rsvp iframe {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0, rgba(255,255,255,0) 400px);
+    height:100%;
+}
