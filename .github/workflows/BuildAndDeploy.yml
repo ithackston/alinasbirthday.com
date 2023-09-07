@@ -1,0 +1,50 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+            ref: dist
+            # need at least 2 here so we can get a proper log in next step
+            fetch-depth: 2
+
+      - name: Get Updated Files
+        run: |
+            # allow grep to fail
+            set +e
+            FILES=$(git log --stat="1000" -1 | grep '|' | awk '{print "/"$1}')
+            set -e
+            [ -z "$FILES" ] && touch .updated_files && exit 0
+            for file in $FILES; do
+            echo $file
+            # add bare directory to list of updated paths when we see index.html
+            [[ "$file" == *"/index.html" ]] && echo $file | sed -e 's/\/index.html$/\//'
+            done | sort | uniq | tr '\n' ' ' > .updated_files
+      
+      - name: Sync to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}   # optional: defaults to us-east-1
+          SOURCE_DIR: 'public'      # optional: defaults to entire repository
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+            PATHS_FROM: .updated_files
+            AWS_REGION: ${{ secrets.AWS_REGION }}
+            DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
