@@ -20,7 +20,7 @@ jobs:
         run: |
             # allow grep to fail
             set +e
-            FILES=$(git log --stat="1000" -1 | grep '|' | awk '{print "/"$1}')
+            FILES=$(git log --stat="1000" -1 | grep '|' | awk '{print "/"$1}') | grep -e '^\/public'
             set -e
             [ -z "$FILES" ] && touch .updated_files && exit 0
             for file in $FILES; do
