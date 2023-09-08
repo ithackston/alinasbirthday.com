@@ -7,13 +7,14 @@ body {
     font-size: 20px;
 }
 .header {
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.65) 100px, rgba(0, 0, 0,0) 80%);
+    background:linear-gradient(0deg, rgba(20, 7, 46, 0.75) 100px, rgba(20, 7, 46,0) 80%);
     max-width: 600px;
     margin: 10px auto;
     text-align: center;
     color: white;
     padding: 40px 20px 20px 20px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    border-radius: 8px;
 }
 .header .bigname {
     font-weight: 900;
@@ -51,60 +52,79 @@ body {
     margin:20px 0 0 0;
 }
 .container {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(20, 7, 46, 0.75);
     max-width: 600px;
     margin: 10px auto;
     color: white;
     padding: 20px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 1);
     display: flex;
+    border-radius: 8px;
+}
+.container .col {
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+    line-height:1em;
+    width:50%;
+    flex:1;
+}
+.container .col.left {
+    padding:0 10px 0 0;
+}
+.container .col.right {
+    padding:0 0 0 10px;
 }
 .container sup {
     vertical-align: text-top;
     font-size: .6em;
     line-height: 1.3em;
 }
-.location {
-    text-align: center;
-    font-weight: 400;
-    font-style: normal;
-    font-size:30px;
-    line-height:30px;
-    width:50%;
-    flex:1;
-    padding:0 10px;
+.container .col .line {
+    display: block;
+    clear: both;
 }
-.location a {
+.container .col a.biglink {
+    /* background: rgba(232, 155, 188, .5); */
     color:rgb(255, 255, 255);
     text-decoration: none;
     display:block;
     width:100%;
     cursor:pointer;
+    text-align: left;
+    margin:20px 0 0 0;
+    border: 1px solid rgba(239, 222, 152, 0.65);
+    background: rgba(239, 222, 152, 0.15);
+    border-radius: 4px;
+    font-size:30px;
+    line-height: 1em;
+    font-weight: 700;
+    color:rgb(239, 222, 152);
 }
-.location .line {
+.container .col a.biglink span {
     display: block;
-    clear: both;
+    padding: 10px;
+}
+.biglink img {
+    display: block;
+    width: 1em;
+    height: 1em;
+    float: right;
+    fill:rgb(239, 222, 152);
+}
+.icon.cal{
+    background:url('images/glyphicons-halflings-21-calendar.svg') center center no-repeat;
+}
+.icon.map{
+    background:url('images/glyphicons-halflings-210-map-marker.svg') center center no-repeat;
 }
 .location .bigname {
-    font-weight: 700;
+    font-weight: 900;
     font-style: normal;
     font-size:50px;
     height:50px;
     line-height:50px;
-}
-.time {
-    text-align: center;
-    font-weight: 400;
-    font-style: normal;
-    font-size:30px;
-    line-height:30px;
-    width:50%;
-    flex:1;
-    padding:0 10px;
-}
-.time .line {
-    display: block;
-    clear: both;
 }
 .time .date {
     font-size:50px;
@@ -118,25 +138,36 @@ body {
 .rsvp a {
     display: block;
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     font-weight: 700;
     font-style: normal;
     font-size: 50px;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 8px rgba(255, 255, 255, 1);
-    border-radius: 12px;
+    border-radius: 4px;
     background:linear-gradient(0deg, rgb(193, 148, 38) 0%, rgb(247, 191, 16) 100%);
     color:rgb(55, 16, 82);
 }
 
 #rsvp {
-    height:100vh;
+    background:rgba(221, 240, 235, 0.85);
+    border-radius: 8px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #rsvp iframe {
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0, rgba(255,255,255,0) 400px);
-    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 @media (max-width: 500px) {
@@ -159,20 +190,11 @@ body {
         font-size:24px;
         line-height:24px;
     }
-    .location {
+    .container .col {
         font-size:24px;
         line-height:24px;
     }
-    .location .bigname {
-        font-size:40px;
-        height:40px;
-        line-height:40px;
-    }
-    .time {
-        font-size:24px;
-        line-height:24px;
-    }
-    .time .date {
+    .container .col .bigname {
         font-size:40px;
         height:40px;
         line-height:40px;
@@ -184,19 +206,11 @@ body {
         font-size:20px;
         line-height:20px;
     }
-    .location {
+    .container .col {
         font-size:22px;
         line-height:22px;
     }
-    .location .bigname {
-        font-size:35px;
-        line-height:35px;
-    }
-    .time {
-        font-size:22px;
-        line-height:22px;
-    }
-    .time .date {
+    .container .col .bigname {
         font-size:35px;
         line-height:35px;
     }
